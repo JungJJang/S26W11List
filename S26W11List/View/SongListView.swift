@@ -18,26 +18,18 @@ struct SongListView: View {
     var body: some View {
         List {
             ForEach(viewModel.songs) { song in
-                SongItem(song: song)
+                VStack(
+                    alignment: .leading,
+                    spacing: 16,
+                ) {
+                    Text(song.title)
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                    Text(song.artist)
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
             }
-        }
-    }
-}
-
-struct SongItem: View {
-    let song: Song
-    
-    var body: some View {
-        VStack(
-            alignment: .leading,
-            spacing: 16,
-        ) {
-            Text(song.title)
-                .font(.headline)
-                .foregroundColor(.blue)
-            Text(song.artist)
-                .font(.caption)
-                .foregroundColor(.gray)
         }
     }
 }
